@@ -1,31 +1,70 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿<div class="row-fluid">
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    
+    <div class="span12">
+    @if (!string.IsNullOrEmpty(ViewBag.Rep))
+    {   
+        <div class="span2">
+            
+              <a href="#" class="thumbnail">
+                  <img src="~/images/reps/" alt="Rep Photo" />
+              </a>
+            
+        </div>
+        <div class="span10">
+            <h4>Welcome to the official PoshRed booking page of @ViewBag.Rep.  Please feel free to set up and book your own events with the user of our simple online booking system.</h4>        
+            <h4>If you have any questions, please contact @ViewBag.Rep or email us directly at info@poshred.com</h4> 
+        </div>
+    }
+    else
+    {
+       <div class="span12">
+       <p><strong>Welcome to The Exchange.  Use our services to get plugged in to the hottest events in Las Vegas nightlife.</strong></p>
+       </div>
+    }
+    <p>&nbsp;</p>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+
+<div class="row-fluid">
+    <div class="span12">
+        <ul class="thumbnails">
+            <li class="span4">
+              <a href="http://www.nitetours.com/poshred.html" target="_blank" class="thumbnail">
+                <img src="../../images/nite_tours.gif" alt="Nite Tours" />
+              </a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail">
+                  <img src="../../images/marquee.jpg" alt="Marquee" />
+              </a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail">
+                  <img src="../../images/bodyenglishlogo.jpg" alt="Body English" />
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                  <img src="../../images/surrender.jpg" alt="Surrender" />
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                  <img src="../../images/hakkasanlogo.jpg" alt="Hakkasan" />
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                  <img src="../../images/bagatellelogo.jpg" alt="Bagatelle" />
+              </a>
+            </li>
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                  <img src="../../images/latinnights.jpg" alt="Latin Nights" />
+              </a>
+            </li>
+          </ul>
     </div>
 </div>

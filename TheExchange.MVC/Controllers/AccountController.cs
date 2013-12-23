@@ -49,7 +49,8 @@ namespace TheExchange.MVC.Controllers
                 if (user != null)
                 {
                     await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
+                    //return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Create", "Ticket");
                 }
                 else
                 {
@@ -286,7 +287,7 @@ namespace TheExchange.MVC.Controllers
         //
         // POST: /Account/LogOff
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
@@ -317,6 +318,26 @@ namespace TheExchange.MVC.Controllers
                 UserManager = null;
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult AddRole()
+        {
+            var rm = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
+            var um = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+
+            if (!rm.RoleExists("Admin"))
+            {
+                rm.Create(new IdentityRole("Admin"));
+            }
+
+            var user = um.FindByName("vlopezjr");
+            if (!um.IsInRole(user.Id, "Admin"))
+            {
+                var userResult = um.AddToRole(user.Id, "Admin");
+                
+            }
+
+            return View();
         }
 
         #region Helpers

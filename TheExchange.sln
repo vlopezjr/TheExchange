@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheExchange.Service", "TheE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheExchange.MVC", "TheExchange.MVC\TheExchange.MVC.csproj", "{4539BE20-13D0-47E4-91D8-2401805C5A39}"
 EndProject
+Project("{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}") = "TheExchange.Mobile", "TheExchange.Mobile\TheExchange.Mobile.iceproj", "{9C494B67-A806-4A65-9E60-17DB47C5F080}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4539BE20-13D0-47E4-91D8-2401805C5A39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4539BE20-13D0-47E4-91D8-2401805C5A39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4539BE20-13D0-47E4-91D8-2401805C5A39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C494B67-A806-4A65-9E60-17DB47C5F080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C494B67-A806-4A65-9E60-17DB47C5F080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C494B67-A806-4A65-9E60-17DB47C5F080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C494B67-A806-4A65-9E60-17DB47C5F080}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

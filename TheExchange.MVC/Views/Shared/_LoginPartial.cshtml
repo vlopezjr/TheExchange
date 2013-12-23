@@ -1,22 +1,49 @@
-﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
+﻿@if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-    @Html.AntiForgeryToken()
+    <li>@Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })</li>
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+    @* using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", style="" }))
+        {
+            @Html.AntiForgeryToken()
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        }*@
+
+    if (User.IsInRole("Admin"))
+    {
+        <li class="dropdown">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Admin <strong class="caret"></strong></a>
+
+            <ul class="dropdown-menu" style="color: Black;">
+                <li>&nbsp;<a href="@Url.Action("Index","Appointment")">Appointments</a></li>
+                <li>&nbsp;<a href="@Url.Action("Index","Venue")">Venues</a></li>
+                <li>&nbsp;<a href="@Url.Action("Index","VenueType")">Venue Types</a></li>
+                <li>&nbsp;<a href="@Url.Action("Index","Location")">Locations</a></li>
+                <li>&nbsp;<a href="@Url.Action("AddRep","Account")">User Mgmnt</a></li>
+            </ul>
+
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
     }
+    <form id="logoutForm" name="logoutForm" action="/Account/LogOff" method="post" class="navbar pull-right">
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    </form>
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+    <li class="dropdown">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+        <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+            <form method="post" action="@Url.Action("Login", "Account")" accept-charset="UTF-8">
+                @Html.AntiForgeryToken()
+                <input style="margin-bottom: 15px;" type="text" placeholder="Username" id="UserName" name="UserName">
+                <input style="margin-bottom: 15px;" type="password" placeholder="Password" id="Password" name="Password">
+                <input style="float: left; margin-right: 10px;" type="checkbox" name="RememberMe" id="RememberMe" value="1">
+                <input name="RememberMe" type="hidden" value="false" />
+                <label class="string optional" for="user_remember_me"> Remember me</label>
+                <input class="btn btn-inverse btn-block" type="submit" id="sign-in" value="Sign In">
+                @*<label style="text-align:center;margin-top:5px">or</label>
+                    <input class="btn btn-primary btn-block" type="button" id="sign-in-google" value="Sign In with Google">
+                    <input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" value="Sign In with Twitter">*@
+            </form>
+        </div>
+    </li>
 }

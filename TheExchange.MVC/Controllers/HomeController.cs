@@ -26,5 +26,10 @@ namespace TheExchange.MVC.Controllers
 
             return View();
         }
+
+        public ActionResult Deals()
+        {            
+            return View();
+        }
     }
 }
